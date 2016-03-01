@@ -11,10 +11,17 @@ $jumbotron-bg:                     white;
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
+.jumbotron{
+  opacity: 0.75;
+}
 .center {
      text-align: center;
 }
 
 .navbar-brand {
      font-weight: bold;
+}
+body {
+    background: no-repeat center fixed url('/assets/lyle-vincent.jpg');
+    background-size: cover;
 }
