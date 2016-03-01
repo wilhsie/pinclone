@@ -4,18 +4,16 @@ require File.expand_path('../application', __FILE__)
 # Initialize the Rails application.
 Rails.application.initialize!
 
+SampleApp::Application.configure do
+  # Disable Rails's static asset server (Apache or nginx will already do this)  
+  config.serve_static_assets = false
 
-# Got this isht from stack overflow..
-# http://stackoverflow.com/questions/18100650/how-to-set-a-background-image-in-rails-from-css
+  # Compress JavaScripts and CSS  
+  config.assets.compress = true
 
-# Disable Rails's static asset server (Apache or nginx will already do this)  
-config.serve_static_assets = false
+  # Don't fallback to assets pipeline if a precompiled asset is missed  
+  config.assets.compile = false
 
-# Compress JavaScripts and CSS  
-config.assets.compress = true
-
-# Don't fallback to assets pipeline if a precompiled asset is missed  
-config.assets.compile = false
-
-# Generate digests for assets URLs  
-config.assets.digest = true
+  # Generate digests for assets URLs  
+  config.assets.digest = true
+end
