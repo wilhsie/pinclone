@@ -11,6 +11,9 @@ $jumbotron-bg:                     white;
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
+.quote{
+  font-style: italic;
+}
 .jumbotron{
   opacity: 0.75;
 }
