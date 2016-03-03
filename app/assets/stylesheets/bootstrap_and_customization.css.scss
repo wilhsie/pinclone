@@ -5,6 +5,9 @@ $font-family-sans-serif:           'Lato', 'Helvetica Neue', Helvetica, Arial, s
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
+.padded-top{
+  padding-top: 30px;
+}
 .readable {
   background: rgba(232,241,237,0.75);
 }
@@ -62,3 +65,10 @@ $font-family-sans-serif:           'Lato', 'Helvetica Neue', Helvetica, Arial, s
 @media only screen and (max-device-width: 800px), only screen and (device-width: 1024px) and (device-height: 600px), only screen and (width: 1280px) and (orientation: landscape), only screen and (device-width: 800px), only screen and (max-width: 767px) {
   .flex-video { padding-top: 0; }
 }
+
+// Overrides
+h3 {
+  margin-top: 0px;
+  padding-top: 10px;
+}
+
