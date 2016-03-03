@@ -5,13 +5,22 @@ $font-family-sans-serif:           'Lato', 'Helvetica Neue', Helvetica, Arial, s
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
+.readable {
+  background: rgba(255,255,255,0.75);
+}
 .quote{
   font-style: italic;
 }
-.jumbotron{
-  height: 100vh;
+.with-zen-background {
   background: no-repeat center fixed url('/assets/lyle-vincent.jpg');
   background-size: cover;
+}
+.with-solid-background {
+  background: #7f8c8d;
+  font-color: #ecf0f1;
+}
+.jumbotron{
+  height: 100vh;
   margin-bottom: 0px;
 }
 .center {

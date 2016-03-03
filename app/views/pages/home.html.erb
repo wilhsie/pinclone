@@ -1,9 +1,30 @@
-<div class="jumbotron vertical-center">
+<%
+  url_array = ["https://www.youtube.com/embed/65Yzwp__Axk", 
+  "https://www.youtube.com/embed/kac92T6YuP4"]
+
+  quotes_array = [{quote: "Stay fluid, even in stacatto", artist: "Mos Def"},
+  {quote: "When I let go of what I am, I become what I might be.", artist: ""},
+  {quote: "Being deeply loved by someone gives you strength, while loving someone deeply gives you courage.", artist: ""},
+  {quote: "A journey of a thousand miles must begin with a single step.", artist:""},
+  {quote: "If you do not change direction, you may end up where you are heading.", artist:""},
+  {quote: "Be content with what you have; rejoice in the way things are. When you realize there is nothing lacking, the whole world belongs to you.", artist:""},
+  {quote: "Nature does not hurry, yet everything is accomplished.", artist:""},
+  {quote: "A good traveler has no fixed plans, and is not intent on arriving.", artist:""},
+  {quote: "He who controls others may be powerful, but she who has mastered herself is mightier still.", artist:""},
+  {quote: "Simplicity is ultimate sophistication", artist:""},
+  {quote: "Freedom is the ability to not do what you should not do", artist:"Immanuel Kan"}]
+
+  quotes_array_index = Random.new_seed % quotes_array.length
+%>
+
+<div class="jumbotron vertical-center with-zen-background">
   <div class="container center">
-    <p class="quote">"Stay fluid even in stacatto"</p>
-    <p class="quote">-Mos Def</p>
+    <div class="container readable">
+      <p class="quote"><%= quotes_array[quotes_array_index][:quote] %></p>
+      <p class="quote">~<%= quotes_array[quotes_array_index][:artist] %></p>
+    </div>
     <div class="flex-video">
-      <iframe src="https://www.youtube.com/embed/65Yzwp__Axk" frameborder="0" allowfullscreen></iframe>
+      <iframe src='<%= url_array[Random.new_seed % url_array.length] %>' frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
 </div>
