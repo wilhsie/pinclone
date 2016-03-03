@@ -1,6 +1,9 @@
 <%
   url_array = ["https://www.youtube.com/embed/65Yzwp__Axk", 
-  "https://www.youtube.com/embed/kac92T6YuP4"]
+  "https://www.youtube.com/embed/kac92T6YuP4",
+  "https://www.youtube.com/embed/P3-QkCzAv7M",
+  "https://www.youtube.com/embed/HxNTDNJ7Ndo",
+  "https://www.youtube.com/embed/yPVhFqZgP4U"]
 
   quotes_array = [{quote: "Stay fluid, even in stacatto", artist: "Mos Def"},
   {quote: "When I let go of what I am, I become what I might be.", artist: ""},
@@ -19,12 +22,12 @@
 
 <div class="jumbotron vertical-center with-zen-background">
   <div class="container center">
+    <div class="flex-video">
+      <iframe src='<%= url_array[Random.new_seed % url_array.length] %>' frameborder="0" allowfullscreen></iframe>
+    </div>
     <div class="container readable">
       <p class="quote"><%= quotes_array[quotes_array_index][:quote] %></p>
       <p class="quote">~<%= quotes_array[quotes_array_index][:artist] %></p>
-    </div>
-    <div class="flex-video">
-      <iframe src='<%= url_array[Random.new_seed % url_array.length] %>' frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
 </div>
