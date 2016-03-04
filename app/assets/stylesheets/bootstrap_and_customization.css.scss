@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+@import url(https://fonts.googleapis.com/css?family=Cedarville+Cursive);
 
 $font-family-sans-serif:           'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
@@ -16,6 +17,7 @@ $font-family-sans-serif:           'Lato', 'Helvetica Neue', Helvetica, Arial, s
 }
 .quote{
   font-style: italic;
+  font-family: 'Cedarville Cursive', cursive;
 }
 .with-zen-background {
   background: no-repeat center fixed url('/assets/lyle-vincent.jpg');
@@ -75,3 +77,6 @@ h3 {
   padding-top: 10px;
 }
 
+.jumbotron p {
+  margin-bottom: 0;
+}
