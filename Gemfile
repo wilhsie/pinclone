@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
 gem 'devise', '~> 4.0.0.rc1'
+gem 'yahoo_weatherman', '~> 2.0.0'
 
 
 group :development, :test do
