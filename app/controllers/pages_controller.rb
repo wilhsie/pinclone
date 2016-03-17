@@ -11,7 +11,8 @@ class PagesController < ApplicationController
     {type: "youtube", url: "https://www.youtube.com/embed/yPVhFqZgP4U"},
     {type: "soundcloud", url: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/154442764&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"},
     {type: "soundcloud", url: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/199939454&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"},
-    {type: "soundcloud", url: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/236446111&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"}]
+    {type: "soundcloud", url: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/236446111&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"},
+    {type: "soundcloud", url: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/230226313&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"}]
 
     @quotes_array = [{quote: "Stay fluid, even in stacatto", artist: "Mos Def"},
     {quote: "When I let go of what I am, I become what I might be.", artist: ""},
@@ -28,16 +29,26 @@ class PagesController < ApplicationController
 
     @quotes_array_index = Random.new_seed % @quotes_array.length
 
-    @lat_lng = cookies[:lat_lng].split("|") 
+    lat_lng = cookies[:lat_lng].split("|") 
  
     # Convert lat and long to city/state/country
-     
-    @response = Net::HTTP.get_response(URI("http://dev.virtualearth.net/REST/v1/Locations/" + @lat_lng.join(",") + "?includeEntityTypes=Neighborhood,CountryRegion&key=AmINVxcc_sPcCBx1CR652dkjpSLasZjfEtlmmeFmlyh9YYX9VKDYNDLEat9y1XUK"))
-   
-    @resbody = JSON.parse(@response.body)
+    api_key = "5dfa9bac37cdbde1"    
 
-    #client = Weatherman::Client.new
-       
+    response = Net::HTTP.get_response(URI("http://api.wunderground.com/api/" + api_key + "/conditions/forecast/q/" + lat_lng.join(",") + ".json"))    
+    resbody = JSON.load(response.body)
+
+    @location = resbody['current_observation']['display_location']['city']
+    @temp_f = resbody['current_observation']['temperature_string']
+    @local_time = resbody['current_observation']['local_time_rfc822']
+    @weather = resbody['current_observation']['weather']
+
+    #@admin_district = @resbody["adminDistrict"] # i.e. MA
+    #@locality = @resbody["locality"]            # i.e. Mission Hill
+    #@country_region = @resbody["countryRegion"] # i.e. United States
+    #@formatted_addr = @resbody["formattedAddress"] #i.e. Mission HIll, MA
+ 
+    #  What is the weather of the formatted_addr?
+      
   end
 
   def about
