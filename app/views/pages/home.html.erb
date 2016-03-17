@@ -1,13 +1,8 @@
-<%= debug @lat_lng %>
-<pre>
-  <%= @temp_f   %>
-  <%= @location %>
-  <%= @local_time %>
-  <%= @weather %>
-</pre>
-
 <div class="jumbotron vertical-center with-zen-background">
   <div class="container center">
+    <div class="weather quote readable">
+        It is <%= @temp_f %> and <%= @weather %> in <%= @location %> on <%= @local_time %>
+    </div>
     <div class="flex-video">
       <iframe src='<%= @url_array[Random.new_seed % @url_array.length][:url] %>' frameborder="0" allowfullscreen></iframe>
     </div>

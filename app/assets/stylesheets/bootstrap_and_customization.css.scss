@@ -1,5 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:400,700);
 @import url(https://fonts.googleapis.com/css?family=Cedarville+Cursive);
+@import url(https://fonts.googleapis.com/css?family=Nunito:300);
 
 $font-family-sans-serif:           'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
@@ -16,8 +17,8 @@ $font-family-sans-serif:           'Lato', 'Helvetica Neue', Helvetica, Arial, s
   background: rgba(232,241,237,0.75);
 }
 .quote{
-  font-style: italic;
-  font-family: 'Cedarville Cursive', cursive;
+  //font-style: italic;
+  font-family: 'Nunito', sans-serif;
 }
 .with-zen-background {
   background: no-repeat center fixed url('/assets/lyle-vincent.jpg');
@@ -52,6 +53,7 @@ $font-family-sans-serif:           'Lato', 'Helvetica Neue', Helvetica, Arial, s
   padding-bottom: 30vh;
   height: 0;
   margin-bottom: 16px;
+  margin-top: 16px;
   overflow: hidden;
 }
 

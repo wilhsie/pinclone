@@ -39,16 +39,9 @@ class PagesController < ApplicationController
 
     @location = resbody['current_observation']['display_location']['city']
     @temp_f = resbody['current_observation']['temperature_string']
-    @local_time = resbody['current_observation']['local_time_rfc822']
+    @local_time = resbody['current_observation']['local_time_rfc822'][0..-16]
     @weather = resbody['current_observation']['weather']
 
-    #@admin_district = @resbody["adminDistrict"] # i.e. MA
-    #@locality = @resbody["locality"]            # i.e. Mission Hill
-    #@country_region = @resbody["countryRegion"] # i.e. United States
-    #@formatted_addr = @resbody["formattedAddress"] #i.e. Mission HIll, MA
- 
-    #  What is the weather of the formatted_addr?
-      
   end
 
   def about
