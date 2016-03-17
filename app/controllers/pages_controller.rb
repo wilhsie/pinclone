@@ -30,19 +30,20 @@ class PagesController < ApplicationController
     @quotes_array_index = Random.new_seed % @quotes_array.length
 
     if cookies[:lat_lng] != nil
-      lat_lng = cookies[:lat_lng].split("|") 
+      @lat_lng = cookies[:lat_lng].split("|") 
+
+      # Convert lat and long to city/state/country
+      api_key = "5dfa9bac37cdbde1"    
+
+
+      response = Net::HTTP.get_response(URI("http://api.wunderground.com/api/" + api_key + "/conditions/forecast/q/" + @lat_lng.join(",") + ".json"))    
+      resbody = JSON.load(response.body)
+
+      @location = resbody['current_observation']['display_location']['city']
+      @temp_f = resbody['current_observation']['temperature_string']
+      @local_time = resbody['current_observation']['local_time_rfc822'][0..-16]
+      @weather = resbody['current_observation']['weather']
     end
-
-    # Convert lat and long to city/state/country
-    api_key = "5dfa9bac37cdbde1"    
-
-    response = Net::HTTP.get_response(URI("http://api.wunderground.com/api/" + api_key + "/conditions/forecast/q/" + lat_lng.join(",") + ".json"))    
-    resbody = JSON.load(response.body)
-
-    @location = resbody['current_observation']['display_location']['city']
-    @temp_f = resbody['current_observation']['temperature_string']
-    @local_time = resbody['current_observation']['local_time_rfc822'][0..-16]
-    @weather = resbody['current_observation']['weather']
 
   end
 
