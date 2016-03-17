@@ -29,8 +29,10 @@ class PagesController < ApplicationController
 
     @quotes_array_index = Random.new_seed % @quotes_array.length
 
-    lat_lng = cookies[:lat_lng].split("|") 
- 
+    if cookies[:lat_lng] != nil
+      lat_lng = cookies[:lat_lng].split("|") 
+    end
+
     # Convert lat and long to city/state/country
     api_key = "5dfa9bac37cdbde1"    
 
