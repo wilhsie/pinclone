@@ -1,7 +1,24 @@
+<%- unless @lat_lng %>
+<script>
+  getGeoLocation();
+</script>
+<%- end %>
+
 <div class="jumbotron vertical-center with-zen-background">
   <div class="container center">
-    <div class="weather quote readable">
-      <h1><%= @temp_f %></h1> <%= @weather %> in <%= @location %> on <%= @local_time %>
+    <div id="weather" class="weather quote readable">
+      <script>
+        var weatherDiv = document.getElementById('weather');
+        function success(){
+          weatherDiv.innerHTML = "<h1>" + "<%= @temp_f %>" + "</h1>" + "<%= @weather %>" + " in " + "<%= @location %>" + " on " + "<%= @local_time %>";
+        };
+        
+        function error(){
+          weatherDiv.innerHTML = "<p>Please allow location services to receive weather/time data.</p>";
+        };
+ 
+        navigator.geolocation.getCurrentPosition(success, error);
+      </script>
     </div>
     <div class="flex-video">
       <iframe src='<%= @url_array[Random.new_seed % @url_array.length][:url] %>' frameborder="0" allowfullscreen></iframe>
@@ -13,8 +30,3 @@
   </div>
 </div>
 
-<%- unless @lat_lng %>
-<script>
-  getGeoLocation();
-</script>
-<%- end %>
