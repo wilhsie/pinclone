@@ -22,7 +22,8 @@ class PagesController < ApplicationController
 
     @afternoons = [{type: "soundcloud", url: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/199939454&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"},
 {type: "soundcloud", url:"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/237510132&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"},
-{type: "soundcloud", url:"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/174100804&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"}]
+{type: "soundcloud", url:"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/174100804&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"},
+{type: "soundcloud", url:"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/204841015&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"}]
 
     @latenights = [{type: "soundcloud", url: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/230226313&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"}]
     
