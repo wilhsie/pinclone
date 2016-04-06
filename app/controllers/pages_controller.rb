@@ -41,8 +41,22 @@ class PagesController < ApplicationController
 
       @location = resbody['current_observation']['display_location']['city']
       @temp_f = resbody['current_observation']['temperature_string']
-      @local_time = resbody['current_observation']['local_time_rfc822'][0..-16]
+      @local_time = resbody['current_observation']['local_time_rfc822'][17..18].to_f
       @weather = resbody['current_observation']['weather']
+
+      puts case @local_time
+      when 0..6
+        @greeting = "Early Bird Selections"
+      when 7..11
+        @greeting = "Good Morning"
+      when 12..17
+        @greeting = "こんいちは"
+      when 18..24 
+        @greeting = "こんばんは"
+      else
+        "Error: Switch case local_time"
+      end
+
     end
 
   end

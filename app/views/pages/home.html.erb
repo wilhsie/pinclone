@@ -6,7 +6,10 @@
 
 <div class="jumbotron vertical-center with-zen-background">
   <div class="container center">
-    <div id="weather" class="weather quote readable">
+  <div class="greeting">
+    <h1><%= @greeting %></h1>
+  </div>
+    <div id="weather" class="weather readable">
       <script>
         var weatherDiv = document.getElementById('weather');
         function success(){
