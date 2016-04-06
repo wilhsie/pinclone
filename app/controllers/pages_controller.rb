@@ -4,15 +4,22 @@ require 'uri'
 
 class PagesController < ApplicationController
   def home
+
+=begin
+    Original songs used, please remove on next refactor ;]
+
     @url_array = [{type: "youtube", url: "https://www.youtube.com/embed/65Yzwp__Axk"},
-    {type: "youtube", url: "https://www.youtube.com/embed/kac92T6YuP4"},
     {type: "youtube", url: "https://www.youtube.com/embed/P3-QkCzAv7M"},
     {type: "youtube", url: "https://www.youtube.com/embed/HxNTDNJ7Ndo"},
     {type: "youtube", url: "https://www.youtube.com/embed/yPVhFqZgP4U"},
-    {type: "soundcloud", url: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/154442764&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"},
-    {type: "soundcloud", url: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/199939454&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"},
-    {type: "soundcloud", url: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/236446111&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"},
-    {type: "soundcloud", url: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/230226313&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"}]
+    {type: "soundcloud", url: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/236446111&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"}]
+
+=end
+    @earlyMornings = [{type: "soundcloud", url: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/154442764&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"}]
+    @mornings = [{type: "youtube", url: "https://www.youtube.com/embed/kac92T6YuP4"}]
+    @afternoons = [{type: "soundcloud", url: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/199939454&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"}]
+    @latenights = [{type: "soundcloud", uarl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/230226313&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"}]
+    
 
     @quotes_array = [{quote: "Stay fluid, even in stacatto", artist: "Mos Def"},
     {quote: "When I let go of what I am, I become what I might be.", artist: ""},
@@ -25,7 +32,11 @@ class PagesController < ApplicationController
     {quote: "She who controls others may be powerful, but she who has mastered herself is mightier still.", artist:""},
     {quote: "Simplicity is ultimate sophistication", artist:""},
     {quote: "Freedom is the ability to not do what you should not do", artist:"Immanuel Kan"},
-    {quote: "I'm mad.  But I ain't stressin'.", artist:"Kendrick Lamar"}]
+    {quote: "I'm mad.  But I ain't stressin'.", artist:"Kendrick Lamar"},
+    {quote: "Life without knowledge is death in disguise.", artist:"Talib Kweli"},
+    {quote: "Don't worry, it will only slow you down.", artist:"*cawed the crow*~"},
+    {quote: "Man cannot change without suffering, for he is both the marble and the sculptor.", artist:""},
+    {quote: "I prefer to build people up, rather than break them down.", artist:"*some young hopeful*~"}]
 
     @quotes_array_index = Random.new_seed % @quotes_array.length
 
@@ -42,17 +53,22 @@ class PagesController < ApplicationController
       @location = resbody['current_observation']['display_location']['city']
       @temp_f = resbody['current_observation']['temperature_string']
       @local_time = resbody['current_observation']['local_time_rfc822'][17..18].to_f
+      @local_date = resbody['current_observation']['local_time_rfc822'][0..16]
       @weather = resbody['current_observation']['weather']
 
       puts case @local_time
       when 0..6
-        @greeting = "Early Bird Selections"
+        @greeting = "Early Morning Selections"
+        @linkToVideo = @earlyMornings[Random.new_seed % @earlyMornings.length][:url]
       when 7..11
         @greeting = "Good Morning"
+        @linkToVideo = @mornings[Random.new_seed % @mornings.length][:url]
       when 12..17
         @greeting = "こんいちは"
+        @linkToVideo = @afternoons[Random.new_seed % @afternoons.length][:url]
       when 18..24 
         @greeting = "こんばんは"
+        @linkToVideo = @latenights[Random.new_seed % @latenights.length][:url] 
       else
         "Error: Switch case local_time"
       end

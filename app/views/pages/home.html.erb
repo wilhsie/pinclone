@@ -10,10 +10,11 @@
     <h1><%= @greeting %></h1>
   </div>
     <div id="weather" class="weather readable">
+
       <script>
         var weatherDiv = document.getElementById('weather');
         function success(){
-          weatherDiv.innerHTML = "<h1>" + "<%= @temp_f %>" + "</h1>" + "<%= @weather %>" + " in " + "<%= @location %>" + " on " + "<%= @local_time %>";
+          weatherDiv.innerHTML = "<h1>" + "<%= @temp_f %>" + "</h1>" + "<%= @weather %>" + " in " + "<%= @location %>" + " on " + "<%= @local_date %>";
         };
         
         function error(){
@@ -24,7 +25,7 @@
       </script>
     </div>
     <div class="flex-video">
-      <iframe src='<%= @url_array[Random.new_seed % @url_array.length][:url] %>' frameborder="0" allowfullscreen></iframe>
+      <iframe src='<%= @linkToVideo %>' frameborder="0" allowfullscreen></iframe>
     </div>
     <div class="container readable">
       <p class="quote padded-top"><%= @quotes_array[@quotes_array_index][:quote] %></p>
