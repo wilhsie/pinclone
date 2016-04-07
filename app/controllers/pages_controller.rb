@@ -5,27 +5,24 @@ require 'uri'
 class PagesController < ApplicationController
   def home
 
-=begin
-    Original songs used, please remove on next refactor ;]
-
-    @url_array = [{type: "youtube", url: "https://www.youtube.com/embed/65Yzwp__Axk"},
-    {type: "youtube", url: "https://www.youtube.com/embed/P3-QkCzAv7M"},
-    {type: "youtube", url: "https://www.youtube.com/embed/HxNTDNJ7Ndo"},
-    {type: "youtube", url: "https://www.youtube.com/embed/yPVhFqZgP4U"},
-    {type: "soundcloud", url: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/236446111&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"}]
-
-=end
-
     @earlyMornings = [{type: "soundcloud", url: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/154442764&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"}]
 
-    @mornings = [{type: "youtube", url: "https://www.youtube.com/embed/kac92T6YuP4"}]
+    @mornings = [{type: "youtube", url: "https://www.youtube.com/embed/kac92T6YuP4"},
+{type:"soundcloud", url:"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/106358066&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"},
+{type:"soundcloud", url:"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/10706905&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"},
+{type:"Soulection Phife Dawg Tribute", url:"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/256764963&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"}]
 
     @afternoons = [{type: "soundcloud", url: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/199939454&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"},
 {type: "soundcloud", url:"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/237510132&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"},
 {type: "soundcloud", url:"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/174100804&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"},
-{type: "soundcloud", url:"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/204841015&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"}]
+{type: "soundcloud", url:"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/204841015&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"},
+{type:"soundcloud", url:"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/106358066&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"},
+{type:"Erykah Badu Mixtape - DJ NAIKI", url:"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/8620977&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"},
+{type:"Soulection Phife Dawg Tribute", url:"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/256764963&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"}]
 
-    @latenights = [{type: "soundcloud", url: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/230226313&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"}]
+    @latenights = [{type: "soundcloud", url: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/230226313&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"}, 
+{type: "soundcloud", url: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/236446111&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"},
+{type:"Soulection Phife Dawg Tribute", url:"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/256764963&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"}]
     
 
     @quotes_array = [{quote: "Stay fluid, even in stacatto", artist: "Mos Def"},
