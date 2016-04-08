@@ -25,7 +25,8 @@ class PagesController < ApplicationController
 {type:"Soulection Phife Dawg Tribute", url:"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/256764963&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"}]
     
 
-    @quotes_array = [{quote: "Stay fluid, even in stacatto", artist: "Mos Def"},
+    @quotes_array = [{quote: "You ain't gotta lie to kick it mah nigga, you ain't gotta try so hard.", artist: "Kendrick Lamar"},
+    {quote: "Stay fluid, even in stacatto", artist: "Mos Def"},
     {quote: "When I let go of what I am, I become what I might be.", artist: ""},
     {quote: "Being deeply loved by someone gives you strength, while loving someone deeply gives you courage.", artist: ""},
     {quote: "A journey of a thousand miles must begin with a single step.", artist:""},
