@@ -8,5 +8,9 @@ function setGeoCookie(position) {
 }
 
 function errorGeoCookie(){
+  navigator.geolocation.getCurrentPosition(setGeoCookie, secondError);
+}
+
+function secondError(){
   alert("Please allow location services to view this site's content");
 }
