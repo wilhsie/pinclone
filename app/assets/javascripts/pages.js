@@ -1,5 +1,5 @@
 function getGeoLocation() {
-  navigator.geolocation.getCurrentPosition(setGeoCookie, errorGeoCookie);
+  navigator.geolocation.getCurrentPosition(setGeoCookie, errorGeoCookie, {maximumAge: 60000});
 }
 
 function setGeoCookie(position) {
@@ -7,10 +7,9 @@ function setGeoCookie(position) {
   document.cookie = "lat_lng=" + escape(cookie_val);
 }
 
-function errorGeoCookie(){
-  navigator.geolocation.getCurrentPosition(setGeoCookie, secondError);
-}
-
-function secondError(){
-  alert("Please allow location services to view this site's content");
-}
+function errorGeoCookie(err){
+  if(err.code == 1){
+    // user said no
+    alert("We can't show you cool stuff if location services is off :[");
+  }
+} 
