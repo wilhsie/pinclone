@@ -1,5 +1,4 @@
 require 'net/http'
-require 'net/http'
 require 'uri'
 
 class PagesController < ApplicationController
@@ -40,8 +39,7 @@ class PagesController < ApplicationController
     {quote: "I'm mad.  But I ain't stressin'.", artist:"Kendrick Lamar"},
     {quote: "Life without knowledge is death in disguise.", artist:"Talib Kweli"},
     {quote: "Don't worry, it will only slow you down.", artist:"*cawed the crow*~"},
-    {quote: "Man cannot change without suffering, for he is both the marble and the sculptor.", artist:""},
-    {quote: "I prefer to build people up, rather than break them down.", artist:"*some young hopeful*~"}]
+    {quote: "Man cannot change without suffering, for he is both the marble and the sculptor.", artist:""}]
 
     @quotes_array_index = Random.new_seed % @quotes_array.length
 
