@@ -10,6 +10,6 @@ function setGeoCookie(position) {
 function errorGeoCookie(err){
   if(err.code == 1){
     // user said no
-    alert("We can't show you cool stuff if location services is off :[");
+    console.log("We can't show you cool stuff if location services is off :[");
   }
 } 
